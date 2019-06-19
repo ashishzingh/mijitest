@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/management")
 public class LogsResource {
+    private final Logger log = LoggerFactory.getLogger(LogsResource.class);
 
     @GetMapping("/logs")
     public List<LoggerVM> getList() {
