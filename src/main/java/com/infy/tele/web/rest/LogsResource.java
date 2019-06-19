@@ -33,4 +33,29 @@ public class LogsResource {
         LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
         context.getLogger(jsonLogger.getName()).setLevel(Level.valueOf(jsonLogger.getLevel()));
     }
+    
+    @GetMapping("/log")
+    public String getl() {
+        LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+        
+        /*return context.getLoggerList()
+            .stream()
+            .map(LoggerVM::new)
+            .collect(Collectors.toList());
+        try {
+			obj.divide();
+		} catch (ArithmeticException ex) {
+			ex.printStackTrace();
+			
+		}*/
+        try {
+            log.info("Started Processing REST Service: /stock/management/log");
+            int i=10/0;
+		} catch (ArithmeticException ex) {
+			log.error("Some Exception occured :",ex);
+			
+		}
+        log.info("Completed Processing REST Service: /stock/management/log");
+		return "Microsevice Up and Running";
+    }
 }
